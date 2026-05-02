@@ -1,1 +1,2 @@
-# code-Tieuluan
+#Bùi Hữu Nhân
+#DC21V7N530
