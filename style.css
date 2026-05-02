@@ -1,0 +1,147 @@
+/* Reset CSS */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+:root {
+    --primary-blue: #003580;
+    --light-blue: #0071c2;
+    --action-red: #e12d2d;
+    --bg-gray: #f5f5f5;
+    --agoda-yellow: #fecb2e;
+}
+
+body { background-color: var(--bg-gray); color: #333; }
+
+/* ======== HEADER ======== */
+header {
+    background-color: white; padding: 15px 5%; display: flex;
+    justify-content: space-between; align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;
+}
+.logo { font-size: 26px; font-weight: 800; color: var(--primary-blue); display: flex; align-items: center; gap: 10px; }
+
+/* ======== BUTTONS ======== */
+button { cursor: pointer; padding: 10px 20px; border-radius: 4px; border: none; font-weight: bold; font-size: 14px; transition: all 0.3s ease; }
+.btn-outline { background: white; color: var(--light-blue); border: 1px solid var(--light-blue); }
+.btn-outline:hover { background: #f0f8ff; }
+.btn-primary { background: var(--light-blue); color: white; border: 1px solid var(--light-blue); }
+.btn-primary:hover { background: var(--primary-blue); }
+.btn-search { background: var(--action-red); color: white; padding: 15px 30px; font-size: 16px; border-radius: 4px; }
+.btn-search:hover { background: #c92424; box-shadow: 0 4px 8px rgba(225, 45, 45, 0.3); }
+.full-width { width: 100%; margin-top: 15px; padding: 12px; font-size: 16px; }
+
+/* ======== HERO BANNER ======== */
+.hero {
+    /* Ảnh nền Homestay cực chill với lớp phủ xanh gradient của Agoda */
+    background: linear-gradient(rgba(0, 53, 128, 0.5), rgba(0, 113, 194, 0.3)), 
+                url('https://images.unsplash.com/photo-1587061949409-02df41d5e562?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+    background-size: cover; padding: 100px 5%; display: flex;
+    justify-content: center; align-items: center; min-height: 500px;
+}
+
+.search-box {
+    background: white; padding: 35px; border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); width: 100%; max-width: 900px; /* Thu gọn một chút vì chỉ có 3 ô input */
+    animation: slideUp 0.8s ease-out;
+}
+.search-box h2 { font-size: 28px; margin-bottom: 8px; color: #111; text-align: center; }
+.search-box p { color: #555; margin-bottom: 25px; font-size: 16px; text-align: center; }
+
+.search-form { display: flex; gap: 10px; flex-wrap: wrap; }
+.input-group {
+    flex: 1; min-width: 200px; position: relative;
+    border: 3px solid var(--agoda-yellow); border-radius: 6px; background: white;
+}
+.input-group i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #666; font-size: 18px; }
+.input-group input { width: 100%; padding: 15px 15px 15px 45px; border: none; outline: none; font-size: 15px; border-radius: 4px; background: transparent; }
+.search-msg { margin-top: 15px; color: var(--action-red); font-weight: bold; display: none; text-align: center; font-size: 16px; }
+
+/* ======== ROOM GRID ======== */
+main { padding: 50px 5%; max-width: 1400px; margin: 0 auto; }
+.section-title { margin-bottom: 25px; font-size: 26px; font-weight: 700; color: #333; }
+.room-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
+
+.room-card {
+    background: white; border-radius: 10px; overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08); transition: all 0.3s ease;
+    border: 1px solid #eaeaea; display: flex; flex-direction: column;
+}
+.room-card:hover { transform: translateY(-8px); box-shadow: 0 12px 20px rgba(0,0,0,0.15); }
+.room-card img { width: 100%; height: 230px; object-fit: cover; }
+.room-info { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+.room-name { font-size: 20px; font-weight: bold; color: #111; margin-bottom: 8px; }
+.room-features { color: #666; font-size: 14px; margin-bottom: 5px; }
+.room-capacity { color: var(--light-blue); font-size: 14px; margin-bottom: auto; font-weight: bold; }
+.price-container { margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; }
+.room-price { font-size: 24px; color: var(--action-red); font-weight: 800; }
+
+/* ======== FOOTER ======== */
+footer { background: #222; color: #ddd; padding: 40px 5% 20px; margin-top: 50px; line-height: 1.6; }
+.footer-content { display: flex; justify-content: space-between; align-items: flex-start; max-width: 1400px; margin: 0 auto; flex-wrap: wrap; gap: 30px; }
+.footer-info p { font-size: 15px; margin-bottom: 10px; }
+.social-links a { color: #ddd; text-decoration: none; margin-right: 20px; font-size: 20px; transition: color 0.3s; }
+.social-links a:hover { color: var(--agoda-yellow); }
+
+@media (max-width: 900px) {
+    .search-form { flex-direction: column; }
+    .hero { min-height: auto; padding: 60px 5%; }
+    .footer-content { flex-direction: column; text-align: left; }
+}
+
+/* ======== MODALS ======== */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(3px); }
+.modal-content {
+    background-color: white; margin: 8% auto; padding: 40px; border-radius: 12px; width: 400px; max-width: 90%;
+    position: relative; animation: slideDown 0.4s ease; box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+.modal-content h2 { margin-bottom: 25px; text-align: center; color: var(--primary-blue); font-size: 24px; }
+.modal-content input { width: 100%; padding: 12px 15px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px; outline: none; font-size: 15px; }
+.modal-content input:focus { border-color: var(--light-blue); box-shadow: 0 0 5px rgba(0, 113, 194, 0.3); }
+.close { position: absolute; right: 25px; top: 20px; font-size: 28px; cursor: pointer; color: #888; transition: color 0.2s; }
+.close:hover { color: var(--action-red); }
+.switch-modal { text-align: center; margin-top: 15px; font-size: 14px; color: #666; }
+.switch-modal span { color: var(--light-blue); font-weight: bold; cursor: pointer; }
+.switch-modal span:hover { text-decoration: underline; }
+
+/* ======== ANIMATIONS & RESPONSIVE ======== */
+@keyframes slideUp { from {opacity: 0; transform: translateY(30px);} to {opacity: 1; transform: translateY(0);} }
+@keyframes slideDown { from {opacity: 0; transform: translateY(-30px);} to {opacity: 1; transform: translateY(0);} }
+
+@media (max-width: 900px) {
+    .search-form { flex-direction: column; }
+    .hero { min-height: auto; padding: 60px 5%; }
+    .footer-content { flex-direction: column; gap: 15px; text-align: center; }
+}
+/* --- Styles dành riêng cho trang Chi tiết thanh toán --- */
+.detail-page-body { background-color: #f5f5f5; }
+.checkout-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: flex; gap: 30px; flex-wrap: wrap; }
+.room-summary { flex: 1; min-width: 350px; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.room-summary img { width: 100%; height: 300px; object-fit: cover; }
+.summary-content { padding: 25px; }
+.summary-content h2 { color: #003580; margin-bottom: 15px; font-size: 24px; }
+.booking-dates { background: #f0f8ff; padding: 15px; border-radius: 8px; margin-bottom: 20px; display: flex; justify-content: space-between; border: 1px solid #cce5ff; }
+.date-box { text-align: center; }
+.date-box span { display: block; font-size: 14px; color: #666; }
+.date-box strong { font-size: 18px; color: #333; }
+.detail-row { display: flex; justify-content: space-between; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #ddd; font-size: 16px; }
+.total-price { font-size: 26px; color: #e12d2d; font-weight: bold; text-align: right; margin-top: 20px; }
+
+.customer-form { flex: 1; min-width: 350px; background: white; border-radius: 12px; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.customer-form h3 { margin-bottom: 20px; color: #333; border-bottom: 3px solid #fecb2e; display: inline-block; padding-bottom: 5px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #555; }
+.form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px; outline: none; }
+.btn-confirm { background: #0071c2; color: white; width: 100%; padding: 15px; border: none; border-radius: 6px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 10px;}
+.btn-confirm:hover { background: #003580; }
+.back-link { display: inline-block; margin-bottom: 20px; color: #0071c2; text-decoration: none; font-weight: bold; }
+#qrCodeArea img { width: 150px; height: 150px; margin-bottom: 10px; }
+/* --- Styles mở rộng cho Popup Lịch sử (Trang chủ) --- */
+.history-modal-width { 
+    width: 600px; 
+    max-width: 95%; /* Thêm cái này để giao diện không bị lỗi trên điện thoại */
+}
+.history-list-scroll { 
+    max-height: 400px; 
+    overflow-y: auto; 
+    padding-right: 10px; 
+}
+
